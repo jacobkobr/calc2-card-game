@@ -9,6 +9,7 @@ A card-matching game built to strengthen your Calculus II skills. Match integral
 - **React**
 - **KaTeX**
 - **Tailwind CSS**
+- **JavaScript**
 - **Vite**
 - **PostCSS**
 
