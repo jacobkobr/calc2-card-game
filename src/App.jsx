@@ -12,7 +12,7 @@ function App() {
             {/* header section with the game title */}
             <header>
                 <h1 className="text-4xl font-bold text-center text-white">
-                    Calc 2 Function Matching Game
+                    Function Flip
                 </h1>
             </header>
 
