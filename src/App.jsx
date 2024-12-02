@@ -32,7 +32,7 @@ function App() {
                 <p className="text-sm text-gray-600 flex justify-center items-center gap-2">
                     Jacob Kobrick - MAT 266
                     <span className="flex items-center">
-            |
+            -
             <a
                 href="https://github.com/jacobkobr"
                 target="_blank"
