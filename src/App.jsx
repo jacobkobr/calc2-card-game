@@ -40,7 +40,7 @@ function App() {
                 className="inline-block"
             >
                 <img
-                    src="/githubicon.png"
+                    src="public/githubicon.png"
                     alt="GitHub"
                     className="w-5 h-5 ml-2 align-middle"
                 />
