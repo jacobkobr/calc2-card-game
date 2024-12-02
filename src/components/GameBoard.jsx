@@ -12,42 +12,49 @@ function GameBoard({ difficulty }) {
 
     // set up cards based on difficulty level
     useEffect(() => {
+        // Helper function to shuffle an array
+        const shuffleArray = (array) => {
+            return array.sort(() => Math.random() - 0.5);
+        };
+
         let selectedCards;
         switch (difficulty) {
             case 'Easy':
-                selectedCards = easyCards.slice(0, 4);
+                selectedCards = shuffleArray(easyCards).slice(0, 4); // Randomly select 6 cards for Easy
                 break;
             case 'Medium':
-                selectedCards = mediumCards.slice(0, 6);
+                selectedCards = shuffleArray(mediumCards).slice(0, 6); // Randomly select 10 cards for Medium
                 break;
             case 'Hard':
-                selectedCards = hardCards.slice(0, 8);
+                selectedCards = shuffleArray(hardCards).slice(0, 8); // Randomly select 16 cards for Hard
                 break;
             default:
-                selectedCards = easyCards.slice(0, 4);
+                selectedCards = shuffleArray(easyCards).slice(0, 3); // Default to Easy
         }
 
+        // Create question and answer cards
         const questionCards = selectedCards.map((card, index) => ({
-            id: index * 2,
-            type: 'question',
-            content: card.question,
-            matchId: index,
+            id: index * 2, // Unique ID for the question card
+            type: 'question', // Marks as a question
+            content: card.question, // Question content
+            matchId: index, // Match ID
         }));
 
         const answerCards = selectedCards.map((card, index) => ({
-            id: index * 2 + 1,
-            type: 'answer',
-            content: card.answer,
-            matchId: index,
+            id: index * 2 + 1, // Unique ID for the answer card
+            type: 'answer', // Marks as an answer
+            content: card.answer, // Answer content
+            matchId: index, // Match ID
         }));
 
-        const gameCards = [...questionCards, ...answerCards].sort(() => Math.random() - 0.5);
+        // Combine and shuffle question and answer cards
+        const gameCards = shuffleArray([...questionCards, ...answerCards]);
 
         setCards(gameCards);
         setFlippedCards([]);
         setMatchedCards([]);
         setMoves(0);
-        setIncorrectCards([]); // reset incorrect cards
+        setIncorrectCards([]); // Reset incorrect cards to face
     }, [difficulty]);
 
     // handle logic when two cards are flipped
