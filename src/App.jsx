@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GameBoard from './components/GameBoard';
 import Leaderboard from './components/Leaderboard';
 import DifficultySelector from './components/DifficultySelector';
+import githubLogo from './assets/githubicon.png';
 
 // app serves as the main component that ties everything together
 function App() {
@@ -40,9 +41,9 @@ function App() {
                 className="inline-block"
             >
                 <img
-                    src="assets/githubicon.png"
+                    src={githubLogo}
                     alt="GitHub"
-                    className="w-5 h-5 ml-2 align-middle"
+                    className="w-5 h-5 ml-2"
                 />
             </a>
         </span>
