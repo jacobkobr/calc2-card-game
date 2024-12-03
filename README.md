@@ -4,6 +4,9 @@ A card-matching game built to strengthen your Calculus II skills. Match integral
 
 ---
 
+![Application Screenshot](src/assets/demo.png)
+
+---
 ## Technologies Used
 
 - **React**
