@@ -17,7 +17,7 @@ function App() {
             </header>
 
             {/* main content section containing the difficulty selector and gameboard */}
-            <main className="flex-grow container mx-auto p-4">
+            <main className="flex-grow container mx-auto p-4 bg-gray-100">
                 {/* How to Play Button */}
                 <div className="text-center mb-4">
                     <button
