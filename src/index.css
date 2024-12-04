@@ -1,32 +1,55 @@
 @import 'katex/dist/katex.min.css';
 
-/* tailwind css setup */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* custom styles for the card matching game */
+html, body {
+  background-color: #f4f4f4;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+.dark html, .dark body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
 header {
-  background-color: #0d9488; /* deep teal */
-  color: #ffffff; /* white text */
   text-align: center;
   padding: 1.5rem 0;
 }
 
-/* overall site background */
-body {
-  background-color: #f4f4f4; /* light gray */
+.dark header {
+  background-color: #1e1e1e;
 }
 
-/* card container with perspective for 3d flip */
+footer {
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.dark footer {
+  background-color: #1e1e1e;
+  color: #bbbbbb;
+}
+
 .card-container {
   perspective: 1000px;
   width: 8rem;
   height: 10rem;
   margin: auto;
+  outline: 2px solid #0d9488;
+  border-radius: 0.5rem;
+  transition: outline 0.3s ease;
 }
 
-/* card structure */
+.card-container:hover {
+  outline: 3px solid #14b8a6;
+}
+
 .card {
   position: relative;
   width: 100%;
@@ -35,21 +58,19 @@ body {
   transition: transform 0.6s;
 }
 
-/* when the card is flipped */
 .card.flipped {
   transform: rotateY(180deg);
 }
 
-/* incorrect highlight in red before flipping back */
 .card-container.incorrect {
-  animation: shake 0.5s; /* optional shake effect */
-}
-.card.incorrect .card-face {
-  background-color: #ff4d4d !important; /* bright red for incorrect cards */
-  color: #ffffff !important; /* white text for better contrast */
+  animation: shake 0.5s;
 }
 
-/* shared styles for card faces */
+.card.incorrect .card-face {
+  background-color: #ff4d4d !important;
+  color: #ffffff !important;
+}
+
 .card-face {
   position: absolute;
   width: 100%;
@@ -62,33 +83,94 @@ body {
   justify-content: center;
 }
 
-/* front of the card (question mark) */
 .card-front {
-  background-color: #ffffff; /* white */
-  color: #000000; /* black text */
+  background-color: #ffffff;
+  color: #000000;
   transform: rotateY(0deg);
 }
 
-.card-container {
-  perspective: 1000px;
-  width: 8rem;
-  height: 10rem;
-  margin: auto;
-  outline: 2px solid #0d9488; /* teal outline */
-  border-radius: 0.5rem; /* optional: match rounded corners */
-}
-.card-container:hover {
-  outline: 3px solid #14b8a6; /* lighter teal on hover */
-  transition: outline 0.3s ease; /* smooth transition */
-}
-/* back of the card (math equation) */
 .card-back {
-  background-color: #0d9488; /* teal */
-  color: #ffffff; /* white text */
+  background-color: #0d9488;
+  color: #ffffff;
   transform: rotateY(180deg);
 }
 
-/* shake animation for incorrect card */
+.dark .card-front {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.dark .card-back {
+  background-color: #4b5563;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background-color: #0d9488;
+  color: #ffffff;
+  text-align: center; /* center the column titles */
+  padding: 0.5rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.dark thead th {
+  background-color: #1e293b;
+  text-align: center; /* aligns column titles above data they represent */
+}
+
+.dark tbody tr:nth-child(even) {
+  background-color: #2d3748;
+}
+
+.dark tbody tr:nth-child(odd) {
+  background-color: #1f2937;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.difficulty-buttons button {
+  background-color: #0d9488;
+  color: #ffffff;
+}
+
+.difficulty-buttons button.active {
+  background-color: #14b8a6;
+}
+
+.dark .difficulty-buttons button {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+.dark .difficulty-buttons button.active {
+  background-color: #4b5563;
+}
+
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
