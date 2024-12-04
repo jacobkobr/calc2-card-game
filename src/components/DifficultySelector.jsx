@@ -1,6 +1,5 @@
 import React from 'react';
 
-// this component lets the user select the game difficulty
 function DifficultySelector({ difficulty, setDifficulty }) {
     const difficulties = ['Easy', 'Medium', 'Hard']; // predefined difficulty levels
 
@@ -14,7 +13,7 @@ function DifficultySelector({ difficulty, setDifficulty }) {
                             ? 'bg-teal-600 text-white' 
                             : 'bg-white text-teal-600 border border-teal-600 hover:bg-teal-600 hover:text-white' // hover styles
                     }`}
-                    onClick={() => setDifficulty(level)} // update difficulty when clicked
+                    onClick={() => setDifficulty(level)} 
                 >
                     {level}
                 </button>
