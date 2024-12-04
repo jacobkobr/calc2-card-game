@@ -32,29 +32,29 @@ function GameBoard({ difficulty }) {
                 selectedCards = shuffleArray(easyCards).slice(0, 3); // Default to Easy
         }
 
-        // Create question and answer cards
+        
         const questionCards = selectedCards.map((card, index) => ({
-            id: index * 2, // Unique ID for the question card
-            type: 'question', // Marks as a question
-            content: card.question, // Question content
-            matchId: index, // Match ID
+            id: index * 2, // unique ID for the question card
+            type: 'question', 
+            content: card.question,
+            matchId: index, // match ID
         }));
 
         const answerCards = selectedCards.map((card, index) => ({
-            id: index * 2 + 1, // Unique ID for the answer card
-            type: 'answer', // Marks as an answer
-            content: card.answer, // Answer content
-            matchId: index, // Match ID
+            id: index * 2 + 1, // unique ID for the question card
+            type: 'answer', 
+            content: card.answer, 
+            matchId: index, // match ID
         }));
 
-        // Combine and shuffle question and answer cards
+        // combine and shuffle question and answer cards
         const gameCards = shuffleArray([...questionCards, ...answerCards]);
 
         setCards(gameCards);
         setFlippedCards([]);
         setMatchedCards([]);
         setMoves(0);
-        setIncorrectCards([]); // Reset incorrect cards to face
+        setIncorrectCards([]); // reset incorrect cards to face
     }, [difficulty]);
 
     // handle logic when two cards are flipped
